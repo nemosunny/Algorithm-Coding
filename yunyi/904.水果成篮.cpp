@@ -18,10 +18,10 @@ public:
         if (fruits.empty()) return 0;
         unordered_map<int, int> basket;
         int start = 0;
-        int results = 0;
+        int result = 0;
         for (int end=0;end<fruits.size();end++) {
-            basket[fruits[end]]++; //通过计数的方式将水果放入篮子
-            while (basket.size() > 2) {
+            basket[fruits[end]]++;
+            while (basket.size()>2) {
                 int left_fruit = fruits[start];
                 basket[left_fruit]--;
                 if (basket[left_fruit] == 0) {
@@ -29,9 +29,9 @@ public:
                 }
                 start++;
             }
-            results = max(results, end-start+1);
+            result = max(result, end-start+1);
         }
-        return results;
+        return result;
     }
 };
 // @lc code=end
